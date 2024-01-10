@@ -126,51 +126,51 @@ int is_cmd(info_t *, char *);
 char *dup_chars(char *, int, int);
 char *find_path(info_t *, char *, char *);
 
-/* loophsh.c */
+/* hshloop.c */
 int loophsh(char **);
 
-/* err_string_functions.c */
+/* errstring_fncts.c */
 void _eputs(char *);
 int _eputchar(char);
 int _putfd(char c, int fd);
 int _putsfd(char *str, int fd);
 
-/* string_functions.c */
+/* strng_fncts.c */
 int _strlen(char *);
 int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 char *_strcat(char *, char *);
 
-/* string_functions2.c */
+/* strng_fnct2.c */
 char *_strcpy(char *, char *);
 char *_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
 
-/* string_functions3.c */
+/* strng_fncts3.c */
 char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
 char *_strchr(char *, char);
 
-/* string_functions4.c */
+/* strng_fncts4.c */
 char **strtow(char *, char *);
 char **strtow2(char *, char);
 
-/* memory_functions */
+/* mem_fncts */
 char *_memset(char *, char, unsigned int);
 void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
-/* memory_functions2.c */
+/* mem_fncts2.c */
 int bfree(void **);
 
-/* more_functions.c */
+/* more_fncts.c */
 int interactive(info_t *);
 int is_delim(char, char *);
 int _isalpha(int);
 int _atoi(char *);
 
-/* more_functions2.c */
+/* more_fncts2.c */
 int _erratoi(char *);
 void print_error(info_t *, char *);
 int print_d(int, int);
