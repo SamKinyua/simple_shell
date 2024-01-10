@@ -3,7 +3,7 @@
 /**
  * _strcpy - copies a string
  * @dest: the destination
- * @suc: the source
+ * @suc: the source string
  * Return: pointer to destination
 */
 char *_strcpy(char *dest, char *suc)
@@ -27,6 +27,7 @@ char *_strcpy(char *dest, char *suc)
  * @str: the string to duplicate
  * Return: pointer to the duplicated string
 */
+
 char *_strdup(const char *str)
 {
 	int length = 0;
