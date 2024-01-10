@@ -1,19 +1,19 @@
 #include "shell.h"
 
 /**
- * _myenv - prints the current environment
- * @info: Structure containing potential arguments.
+ * _myenv - prints current environment
+ * @info: Structure containing potential arguments
  * Return: Always 0
  */
 
 int _myenv(info_t *info)
 {
-print_list_str(info->env);
-return (0);
+    print_list_str(info->env);
+    return (0);
 }
 
 /**
- * _getenv - gets the value of an environ variable
+ * _getenv - gets value of an environ variable
  * @info: Structure containing potential arguments. Used to maintain
  * @name: env var name
  * Return: the value
@@ -21,55 +21,55 @@ return (0);
 
 char *_getenv(info_t *info, const char *name)
 {
-list_t *node = info->env;
-char *a;
+    list_t *node = info->env;
+    char *a;
 
-while (node)
-{
-a = starts_with(node->str, name);
-if (a && *a)
-return (a);
-node = node->next;
-}
-return (NULL);
+    while (node)
+    {
+        a = starts_with(node->str, name);
+        if (a && *a)
+            return (a);
+        node = node->next;
+    }
+    return (NULL);
 }
 
 /**
- * _mysetenv - Initialize a new environment variable,
+ * _mysetenv - Initializes a new environment variable,
  * or modify an existing one
  * @info: Structure containing potential arguments.
- *  Return: Always 0
+ * Return: Always 0
  */
 
 int _mysetenv(info_t *info)
 {
-if (info->argc != 3)
-{
-_eputs("Incorrect number of arguements\n");
-return (1);
-}
-if (_setenv(info, info->argv[1], info->argv[2]))
-return (0);
-return (1);
+    if (info->argc != 3)
+    {
+        _eputs("Incorrect number of arguments\n");
+        return (1);
+    }
+    if (_setenv(info, info->argv[1], info->argv[2]))
+        return (0);
+    return (1);
 }
 
 /**
  * _myunsetenv - Remove an environment variable
  * @info: Structure containing potential arguments.
- *  Return: Always 0
+ * Return: Always 0
  */
 int _myunsetenv(info_t *info)
 {
-int z;
+    int r;
 
-if (info->argc == 1)
-{
-_eputs("Too few arguements.\n");
-return (1);
-}
-for (z = 1; z <= info->argc; z++)
-_unsetenv(info, info->argv[z]);
-return (0);
+    if (info->argc == 1)
+    {
+        _eputs("Too few arguments.\n");
+        return (1);
+    }
+    for (r = 1; r <= info->argc; r++)
+        _unsetenv(info, info->argv[r]);
+    return (0);
 }
 
 /**
@@ -77,13 +77,15 @@ return (0);
  * @info: Structure containing potential arguments.
  * Return: Always 0
  */
+
 int populate_env_list(info_t *info)
 {
-list_t *node = NULL;
-size_t z;
+    list_t *node = NULL;
+    size_t r;
 
-for (z = 0; environ[z]; z++)
-add_node_end(&node, environ[z], 0);
-info->env = node;
-return (0);
+    for (r = 0; environ[r]; r++)
+        add_node_end(&node, environ[r], 0);
+    info->env = node;
+    return (0);
 }
+
